@@ -1,14 +1,21 @@
 # functions
-def make_dough(arg1, arg2):
-    if (arg1 == 'water' and arg2 == 'wheat') or (arg1 == 'wheat' and arg2 == 'water'):
+def make_dough(ingredient1, ingredient2):
+    if (ingredient1 == 'water' and ingredient2 == 'wheat') or (ingredient1 == 'wheat' and ingredient2 == 'water'):
         return 'dough'
     else:
         return 'not dough'
-def wood_oven(arg3):
-    if arg3 == 'dough':
+
+def wood_oven(ingredient):
+    if ingredient == 'dough':
         return 'bread'
     else:
         return 'not bread'
+    
+def run_factory(ingredient1, ingredient2):
+    dough_r = make_dough(ingredient1, ingredient2)
+    result_bread = wood_oven(dough_r)
+    return result_bread
+print(run_factory('wheat', 'water'))
 # calling of functions
 
 # tests TDD
@@ -23,3 +30,6 @@ print(wood_oven('dough') == 'bread')
 
 print('Testing wood_oven, with not dough --> not bread to come out')
 print(wood_oven('not dough') == 'not bread')
+
+print('Testing wood_oven, with not dough --> not bread to come out')
+print(wood_oven('dough') == 'not bread')
